@@ -12,7 +12,7 @@
 import MHeader from 'components/m-header/m-header'
 import Tab from 'components/tab/tab'
 import { urlParse } from 'common/js/util'
-const ERR_OK = 0
+// const ERR_OK = 0
 
 export default {
   data () {
@@ -26,12 +26,15 @@ export default {
     }
   },
   created () {
-    this.$http.get('/api/seller?id=' + this.seller.id).then((res) => {
+    let data = require('../static/data.json')
+    this.seller = Object.assign({}, this.seller, data.seller)
+    this.seller.flag = true
+    /* this.$http.get('/api/seller?id=' + this.seller.id).then((res) => {
       res = res.data
       if (res.errno === ERR_OK) {
         this.seller = Object.assign({}, this.seller, res.data)
       }
-    })
+    }) */
   },
   name: 'App',
   components: {
