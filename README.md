@@ -1,21 +1,27 @@
-# cell
+# 知识图谱
 
-> a cell app
+该项目来源[HuangYi](https://github.com/ustbhuangyi)
+![](https://camo.githubusercontent.com/a83e675d5dc0e7b828868d49cfc5afb4bacc7dd9/68747470733a2f2f7765626170702e646964697374617469632e636f6d2f7374617469632f7765626170702f736869656c642f7675652d73656c6c2e706e67)
 
-## Build Setup
+## 技术栈
 
-``` bash
-# install dependencies
-npm install
+- Vue.js
+- Vue-cli
+- Vue-router
+- axios
+- stylus
+- better-scroll
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 其他
 
-# build for production with minification
-npm run build
+- webpack
+- eslint
+- postcss
+- express
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 处理
+- mock data
+- 制作图标字体
+- 一像素边框
+- 不同尺寸 icon 处理
+- localStorge
