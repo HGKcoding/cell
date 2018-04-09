@@ -50,15 +50,20 @@ import Scroll from 'base/scroll/scroll'
 import Shopcart from 'components/shopcart/shopcart'
 import Cartcontrol from 'components/cartcontrol/cartcontrol'
 import Food from 'components/food/food'
-const ERR_OK = 0
+// const ERR_OK = 0
 export default {
   props: {
-    seller: {}
+    seller: {},
+    goods: {
+      default () {
+        return []
+      }
+    }
   },
   data () {
     return {
       currentIndex: 0,
-      goods: [],
+      // goods: [],
       scrollY: 0,
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       selectedFood: {}
@@ -68,7 +73,10 @@ export default {
     this.listHeight = []
     this.probeType = 3
     this.listenScroll = true
-    this.$http.get('/api/goods').then((res) => {
+    this.$nextTick(() => {
+      this._calculateHeight()
+    })
+    /* this.$http.get('/api/goods').then((res) => {
       res = res.data
       if (res.errno === ERR_OK) {
         this.goods = res.data
@@ -76,7 +84,7 @@ export default {
           this._calculateHeight()
         }, 20)
       }
-    })
+    }) */
   },
   methods: {
     scroll (pos) {

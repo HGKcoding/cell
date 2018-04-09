@@ -72,7 +72,7 @@
 import Star from 'components/star/star'
 import Split from 'components/split/split'
 import BScroll from 'better-scroll'
-import { saveToLoacl, loadFromLocal } from 'common/js/store'
+// import { saveToLoacl, loadFromLocal } from 'common/js/store'
 export default {
   props: {
     seller: {
@@ -81,14 +81,16 @@ export default {
   },
   data () {
     return {
-      favorite: (() => {
+      favorite: false,
+      /* favorite: (() => {
         return loadFromLocal(this.seller.id, 'favorite', false)
-      })(),
+      })(), */
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee']
     }
   },
   created () {
     this.$nextTick(() => {
+      this._initPics()
       if (!this.scroll) {
         let content = document.getElementsByClassName('seller-hook')[0]
         this.scroll = new BScroll(content, {
@@ -121,7 +123,7 @@ export default {
     },
     toggleFavorite () {
       this.favorite = !this.favorite
-      saveToLoacl(this.seller.id, 'favorite', this.favorite)
+      // saveToLoacl(this.seller.id, 'favorite', this.favorite)
     }
   },
   computed: {
@@ -129,11 +131,8 @@ export default {
       return this.favorite ? '收藏' : '未收藏'
     }
   },
-  ready () {
-    this._initPics()
-  },
   watch: {
-    seller () {
+    'seller' () {
       this._initPics()
     }
   },

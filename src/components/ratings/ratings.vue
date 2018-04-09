@@ -60,28 +60,33 @@ import BScroll from 'better-scroll'
 import { formatDate } from 'common/js/date'
 
 const ALL = 2
-const ERR_OK = 0
+// const ERR_OK = 0
 export default {
   props: {
     seller: {
       type: Object
+    },
+    ratings: {
+      default () {
+        return []
+      }
     }
   },
   data () {
     return {
-      ratings: [],
+      // ratings: [],
       showFlag: false,
       selectType: ALL,
       onlyContent: true
     }
   },
   created () {
-    this.$http.get('/api/ratings').then((res) => {
+    /* this.$http.get('/api/ratings').then((res) => {
       res = res.data
       if (res.errno === ERR_OK) {
         this.ratings = res.data
       }
-    })
+    }) */
 
     this.$nextTick(() => {
       if (!this.scroll) {
